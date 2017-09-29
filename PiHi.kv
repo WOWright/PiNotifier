@@ -1,0 +1,73 @@
+#:import Clock kivy.clock.Clock
+
+<PiHiScreen>:
+    person: requestor
+    contact: address
+    note: message
+    on_pre_leave:
+        self.resetForm()
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [10,25,10,25]
+        spacing: 25
+
+        Label:
+            size_hint: 1, .1
+            text: 'Dr. Cory is out of the office\nPlease leave her a message'
+            font_size: 32
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                size_hint: 1, .1
+                text: 'Name'
+                font_size: 18
+                halign: 'left'
+                text_size: root.width-20, 20
+
+            TextInput:
+                size_hint: 1, .1
+                id: requestor
+                multiline: False
+                font_size: 18
+
+            Label:
+                size_hint: 1, .1
+                text: 'Email Address'
+                halign: 'left'
+                font_size: 18
+                text_size: root.width-20, 20
+
+            TextInput:
+                size_hint: 1, .1
+                id: address
+                multiline: False
+                font_size: 18
+
+            Label:
+                size_hint: 1, .1
+                text: 'Message'
+                halign: 'left'
+                font_size: 18
+                text_size: root.width-20, 20
+
+            TextInput:
+                size_hint: 1, .5
+                id: message
+                multiline: True
+                font_size: 18
+
+        Button:
+            size_hint: 1, .25
+            text: 'Submit'
+            font_size: 24
+            on_press:
+                root.manager.current = 'thanks_screen'
+
+
+<PiByeScreen>:
+    on_enter:
+        Clock.schedule_once(self.callNext, 3)
+    Label:
+        text: 'Thank you. \nEmily will get in touch with you.'
+        font_size: 42

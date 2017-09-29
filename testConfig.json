@@ -1,0 +1,15 @@
+[
+     {
+          "type": "title",
+          "title": "Communications"
+     },
+
+     {
+          "type":"options",
+          "title":"Communication Method",
+          "desc": "How the app will notify you of visitors",
+          "section": "section1",
+          "options":["Twitter","Text Message","Email"],
+          "key":"Comms"
+      }
+]
