@@ -27,7 +27,9 @@ class PiByeScreen(Screen):
 
 class PiHiApp(App):
 
+
     def build_settings(self, settings):
+        self.use_kivy_settings = False
         with open("testConfig.json", "r") as settings_json:
             settings.add_json_panel('My Custom Settings', self.config, data = settings_json.read())
 
@@ -37,6 +39,7 @@ class PiHiApp(App):
                 })
 
     def build(self):
+
         manager = ScreenManager()
 
         manager.add_widget(PiHiScreen(name='submit_screen'))
